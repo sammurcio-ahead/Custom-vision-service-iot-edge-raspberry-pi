@@ -14,6 +14,53 @@ class Colors(Enum):
     Orange = (255,165, 0)
 
 class DisplayManager(object):
+    def __good(self):
+        G = Colors.Green.value
+        logo = [
+        G, G, G, G, G, G, G, G,
+        G, G, G, G, G, G, G, G,
+        G, G, G, G, G, G, G, G,
+        G, G, G, G, G, G, G, G,
+        G, G, G, G, G, G, G, G,
+        G, G, G, G, G, G, G, G,
+        G, G, G, G, G, G, G, G,
+        G, G, G, G, G, G, G, G,
+        ]
+        return logo
+
+    def __noHardHat(self):
+        R = Colors.Red.value
+        N = Colors.Nothing.value
+        Y = Colors.Yellow.value
+        logo = [
+        N, N, N, N, N, N, N, N,
+        N, N, N, N, N, N, N, N,
+        N, N, R, R, R, R, R, N,
+        N, R, N, R, Y, N, N, R,
+        N, R, Y, Y, R, Y, N, R,
+        N, R, Y, Y, Y, R, Y, R,
+        N, N, R, R, R, R, R, N,
+        N, N, N, N, N, N, N, N,
+        ]
+        return logo
+
+    def __noSafetyVest(self):
+        R = Colors.Red.value
+        O = Colors.Orange.value
+        Y = Colors.Yellow.value
+        N = Colors.Nothing.value
+        logo = [
+        N, N, N, N, N, N, N, N,
+        N, N, R, R, R, R, R, N,
+        N, R, N, Y, O, R, N, R,
+        N, R, O, Y, R, Y, O, R,
+        N, R, Y, R, Y, Y, Y, R,
+        N, R, R, Y, O, Y, O, R,
+        N, N, R, R, R, R, R, N,
+        N, N, N, N, N, N, N, N,
+        ]
+        return logo
+
     def __apple(self):
         G = Colors.Green.value
         N = Colors.Nothing.value
@@ -128,6 +175,25 @@ class DisplayManager(object):
             self.__displayImage(self.__orange())
         elif 'lemon' in strImage.lower():
             self.__displayImage(self.__lemon())
+
+        elif 'man_helmet_front' in strImage.lower():
+            self.__displayImage(self._good())
+        elif 'man_helmet_back' in strImage.lower():
+            self.__displayImage(self._good())
+        elif 'man_nohelmet_front' in strImage.lower():
+            self.__displayImage(self.__noHardHat())
+        elif 'man_nohelmet_back' in strImage.lower():
+            self.__displayImage(self.__noHardHat())
+
+        elif 'man_vest_front' in strImage.lower():
+            self.__displayImage(self._good())
+        elif 'man_vest_back' in strImage.lower():
+            self.__displayImage(self._good())
+        elif 'man_novest_front' in strImage.lower():
+            self.__displayImage(self.__noSafetyVest())
+        elif 'man_novest_back' in strImage.lower():
+            self.__displayImage(self.__noSafetyVest())
+
         elif 'none' in strImage.lower():
             self.s.clear()
         else:
